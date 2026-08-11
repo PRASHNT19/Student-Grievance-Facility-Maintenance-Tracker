@@ -2,10 +2,12 @@ import express, { NextFunction, Request, Response } from "express";
 
 import healthRoutes from "./routes/healthRoutes";
 import { AppError } from "./errors";
-
+import authRouter from "./routes/auth";
 const app = express();
 
 app.use(express.json());
+
+app.use("/api/auth", authRouter);
 
 app.use(healthRoutes);
 
